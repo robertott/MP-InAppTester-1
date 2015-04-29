@@ -69,20 +69,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <!-- Accepts URIs that begin with "mixpaneldeeplink://newcontentpage" -->
-                <data android:scheme="mixpaneldeeplink"
+                <data android:scheme="mpdeeplink"
                     android:host="newcontentpage" />
             </intent-filter>
         </activity>
 
-
-
-
-
-
-
-
-
-
     </application>
-
 </manifest>

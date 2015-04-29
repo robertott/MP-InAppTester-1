@@ -6,22 +6,35 @@ import android.view.Menu;
 import android.view.MenuItem;
 import com.mixpanel.android.mpmetrics.MixpanelAPI;
 
+import java.util.UUID;
+
 
 public class MainActivity extends ActionBarActivity {
 
     // your Mixpanel token
     public static final String MIXPANEL_API_TOKEN = "drew-token";
-    public static final String TEST_DISTINCT_ID = "inapptester@test.example.com";
+    public static final String TEST_DISTINCT_ID = "test_distinct_id_1";
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // init Mixpanel, then identify
+        /* Begin Mixpanel */
+
+        // init Mixpanel
         MixpanelAPI mMixpanel = MixpanelAPI.getInstance(this, MIXPANEL_API_TOKEN);
+
+        // set one People property to create a profile
+        mMixpanel.getPeople().set("in app tester", "true");
+
+        // identify to flush the People queue
         mMixpanel.identify(TEST_DISTINCT_ID);
         mMixpanel.getPeople().identify(TEST_DISTINCT_ID);
+
+        // flush the global queue to Mixpanel
+        mMixpanel.flush();
+
+        /* End Mixpanel */
     }
 
     @Override
