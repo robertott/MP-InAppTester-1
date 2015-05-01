@@ -12,7 +12,7 @@ import java.util.UUID;
 public class MainActivity extends ActionBarActivity {
 
     // your Mixpanel token
-    public static final String MIXPANEL_API_TOKEN = "drew-token";
+    public static final String MIXPANEL_API_TOKEN = "YOUR TOKEN";
     public static final String TEST_DISTINCT_ID = "test_distinct_id_1";
 
     protected void onCreate(Bundle savedInstanceState) {
